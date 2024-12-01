@@ -9,11 +9,13 @@ def split_input_into_lists(input: str) -> tuple[list[int], list[int]]:
         list2.append(int(line.split("   ")[1]))
     return list1, list2
 
+
 def sort_lists(list1: list[int], list2: list[int]) -> tuple[list[int], list[int]]:
     # sort each list from smallest to largest
     list1.sort()
     list2.sort()
     return list1, list2
+
 
 def compare_list_difference(list1: list[int], list2: list[int]) -> int:
     res = 0
@@ -22,22 +24,24 @@ def compare_list_difference(list1: list[int], list2: list[int]) -> int:
     return res
 
 
-def solve_part_one(input: str) -> int:#
+def solve_part_one(input: str) -> int:
     list1, list2 = split_input_into_lists(input)
     list1, list2 = sort_lists(list1, list2)
     res = compare_list_difference(list1, list2)
     return res
+
 
 def count_instances(search: int, list: list[int]) -> int:
     res = 0
     for i in list:
         if i == search:
             res += 1
-        if i > search: # our lists are ordered, so we can stop here
+        if i > search:  # our lists are ordered, so we can stop here
             break
     return res
 
-def solve_part_two(input: str) -> int:#
+
+def solve_part_two(input: str) -> int:
     list1, list2 = split_input_into_lists(input)
     list1, list2 = sort_lists(list1, list2)
 
@@ -48,5 +52,5 @@ def solve_part_two(input: str) -> int:#
 
 
 txt_input = open("input.txt").read()
-print("part one:",solve_part_one(txt_input))
-print("part two:",solve_part_two(txt_input))
+print("part one:", solve_part_one(txt_input))
+print("part two:", solve_part_two(txt_input))
