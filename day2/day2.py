@@ -10,7 +10,7 @@ def split_input_into_lists(input: str) -> list[list[int]]:
 def is_line_valid(line: list[int], dampner_enabled: bool) -> bool:
     if line[0] > line[1]:
         line = list(reversed(line))
-    
+
     should_fail = False
     # now check if line is valid
     for i in range(len(line) - 1):
@@ -23,7 +23,7 @@ def is_line_valid(line: list[int], dampner_enabled: bool) -> bool:
 
     if should_fail and not dampner_enabled:
         return False
-    
+
     # if dampner is switched on,
     # rerun the function again for all possible removals
     if should_fail and dampner_enabled:
@@ -38,6 +38,7 @@ def is_line_valid(line: list[int], dampner_enabled: bool) -> bool:
     # if we get here, the line is valid
     return True
 
+
 def solve_part_one(input: str) -> int:
     lines = split_input_into_lists(input)
 
@@ -47,6 +48,7 @@ def solve_part_one(input: str) -> int:
             res += 1
     return res
 
+
 def solve_part_two(input: str) -> int:
     lines = split_input_into_lists(input)
     res = 0
@@ -54,6 +56,7 @@ def solve_part_two(input: str) -> int:
         if is_line_valid(line, True):
             res += 1
     return res
+
 
 txt_input = open("input.txt").read()
 print("part one:", solve_part_one(txt_input))
