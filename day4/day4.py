@@ -1,8 +1,6 @@
 import re
 
 regex_xmas = re.compile("(?=(XMAS|SAMX))")
-regex_mas = re.compile("(?=(MAS|SAM))")
-
 
 def get_all_horizontal_lines(input: str) -> list[str]:
     return [line for line in input.split("\n")]
